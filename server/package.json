@@ -1,0 +1,14 @@
+{
+  "name": "loja-node",
+  "version": "1.0.0",
+  "description": "aula sg",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "galogico",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
