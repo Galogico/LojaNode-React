@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const bcrypt = require()bcrypt;
 
 module.exports = class AuthRegisterUserController{
     static async init(req,res){
@@ -30,7 +31,23 @@ module.exports = class AuthRegisterUserController{
             return res.status(422).json({message: "a senha é obrigatória"})
         }
         if(confirmPassword != password){
-            return res.status(422).json({message: "a senha está errado"})
+            return res.status(422).json({message: "a senha está errada"})
         }
+
+        const userExist = await User.findOne({email: email})
+        if(userExist){
+            return res.status(422).json({message: "Ja tem usuario com seu email"})
+        }
+        const hash = await bcrypt(12)
+
+        const passwordHash = await bcrypt.hash(password,hash)
+
+        const user = new User({
+            name,
+            email,
+            age,
+            image,
+            password: passwordHash
+        })
     }  
 }
