@@ -4,4 +4,7 @@ module.exports = class AuthRegisterUserController{
     static async init(req,res){
         res.send({message:"Bem vindo à nossa API!"})
     }
+    static async registerUser(req,res){
+        
+    }
 }
