@@ -1,5 +1,5 @@
 const User = require('../models/User')
-const bcrypt = require()bcrypt;
+const bcrypt = require('bcrypt');
 
 module.exports = class AuthRegisterUserController{
     static async init(req,res){
@@ -49,5 +49,10 @@ module.exports = class AuthRegisterUserController{
             image,
             password: passwordHash
         })
+        try{
+            res.status(201).json({message: "usuário cadastrado com sucesso", user})
+        } catch (error) {
+            res.status(500).json({message: "Ocorreu um erro ao cadastrar um usuário, tente novamente mais tarde"})
+        }
     }  
 }

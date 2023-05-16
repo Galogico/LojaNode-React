@@ -2,7 +2,7 @@ const router = require('express').Router()
 const multer = require('multer');
 const AuthRegisterUserController = require('../controllers/AuthRegisterUserController')
 
-const storage = mlter.diskStorage({
+const storage = multer.diskStorage({
     destination: function(req,file,cb){
         cb(null, "uploads ")
     },
@@ -21,6 +21,6 @@ const upload = multer({
     }
 })
 router.get('/', AuthRegisterUserController.init)
-router.post('/auth/register/user',upload.single(image),AuthRegisterUserController.registerUser)
+router.post('/auth/register/user',upload.single('image'),AuthRegisterUserController.registerUser)
 
 module.exports = router
