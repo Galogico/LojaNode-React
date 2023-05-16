@@ -1,30 +1,23 @@
-import logo from './logo.svg';
-import Titulo from './components/Titulo';
-import { useState } from 'react';
+import React from 'react';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 
-function App() {  
-  const [tarefas,setTarefas] = useState([]);
-  const [newTask,setNewTask] = useState('');
-  const addTarefa=()=>{
-    let newTarefa = newTask;
-    setTarefas([...tarefas, newTarefa])
-    setNewTask('')
-  }
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <h1>Sou a rota principal</h1>
+  },
+  {
+    path: '/cadastro',
+    element: <h1>Sou a rota de cadastro</h1>
+  },
+
+])
+function App() {
   return (
-    <div className="App">
-        <Titulo/>
-        <input
-          value={newTask}
-          onChange={(e)=>setNewTask(e.target.value)}
-        />
-        <button onClick={addTarefa}>Cadastrar</button>
-        <div>
-          {
-            tarefas.map(t=><p key={t}>{t}</p>)
-          }
-        </div>
-    </div>
-  );
+    <>
+      <RouterProvider router={router}/>
+    </>
+  )
 }
 
-export default App;
+export default App
