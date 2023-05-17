@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { ButtonFormCadastro, DivFormCadastro, InputFormCadastro, TextFormCadastro, ModeloTitulo } from '../styles/styles'
+
 function Registrar() {
   const [user,setUser] = useState({
                                     name: '',
@@ -16,40 +18,41 @@ function Registrar() {
   }
 
   return (
-    <div>
+    <DivFormCadastro>
+      <ModeloTitulo>FAÇA SEU CADASTRO</ModeloTitulo>
     <form onSubmit={cadastrarUsuario(user)}></form>
-        <label htmlFor="nome">Nome</label>
-        <input type="text" id="nome"
+        <TextFormCadastro htmlFor="nome">Nome</TextFormCadastro>
+        <InputFormCadastro type="text" id="nome"
         
         />
 
-        <label htmlFor="email">Email</label>
-        <input type="text" id="email"
+        <TextFormCadastro htmlFor="email">Email</TextFormCadastro>
+        <InputFormCadastro type="text" id="email"
         value={user.email}
         onChange={(e)=>setUser({...user,email: e.target.value})}
         
         />
 
-        <label htmlFor="idade">Idade</label>
-        <input type="text" id="idade"
+        <TextFormCadastro htmlFor="idade">Idade</TextFormCadastro>
+        <InputFormCadastro type="text" id="idade"
          value={user.age}
          onChange={(e)=>setUser({...user,age: e.target.value})}
         />
 
-        <label htmlFor="senha">Senha</label>
-        <input type="password" id="senha"
+        <TextFormCadastro htmlFor="senha">Senha</TextFormCadastro>
+        <InputFormCadastro type="password" id="senha"
          value={user.password}
          onChange={(e)=>setUser({...user,password: e.target.value})}
         />
 
-        <label htmlFor="confirmPassword">Confirmar Senha</label>
-        <input type="pessword" id="confirmPassword"
+        <TextFormCadastro htmlFor="confirmPassword">Confirmar Senha</TextFormCadastro>
+        <InputFormCadastro type="pessword" id="confirmPassword"
          value={user.confirmPassword}
          onChange={(e)=>setUser({...user,confirmPassword: e.target.value})}
         />
-
-        <button type='submit'>Cadastrar</button>
-    </div>
+ 
+          <ButtonFormCadastro type='submit'>Cadastrar</ButtonFormCadastro>
+    </DivFormCadastro>
   )
 }
 
