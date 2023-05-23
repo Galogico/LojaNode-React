@@ -17,42 +17,63 @@ function Registrar() {
       .catch(erro=> console.log(erro))
   }
 
+  function envioFormulario(event){
+    event.preventDefault();
+    cadastrarUsuario(user);
+  }
   return (
-    <DivFormCadastro>
-      <ModeloTitulo>FAÇA SEU CADASTRO</ModeloTitulo>
-    <form onSubmit={cadastrarUsuario(user)}></form>
-        <TextFormCadastro htmlFor="nome">Nome</TextFormCadastro>
-        <InputFormCadastro type="text" id="nome"
-        
-        />
-
-        <TextFormCadastro htmlFor="email">Email</TextFormCadastro>
-        <InputFormCadastro type="text" id="email"
+    <form className='form' onSubmit={envioFormulario}>
+    <div>
+      <label className='label' htmlFor="nome">Nome:</label>
+      <input
+        className='input' 
+        type="text" 
+        id="nome" 
+        value={user.name}
+        onChange={(e)=>setUser({...user,name: e.target.value})}
+      />
+    </div>
+    <div>
+      <label className='label' htmlFor="email">Email:</label>
+      <input
+        className='input' 
+        type="text" 
+        id="email" 
         value={user.email}
         onChange={(e)=>setUser({...user,email: e.target.value})}
-        
-        />
-
-        <TextFormCadastro htmlFor="idade">Idade</TextFormCadastro>
-        <InputFormCadastro type="text" id="idade"
-         value={user.age}
-         onChange={(e)=>setUser({...user,age: e.target.value})}
-        />
-
-        <TextFormCadastro htmlFor="senha">Senha</TextFormCadastro>
-        <InputFormCadastro type="password" id="senha"
-         value={user.password}
-         onChange={(e)=>setUser({...user,password: e.target.value})}
-        />
-
-        <TextFormCadastro htmlFor="confirmPassword">Confirmar Senha</TextFormCadastro>
-        <InputFormCadastro type="pessword" id="confirmPassword"
-         value={user.confirmPassword}
-         onChange={(e)=>setUser({...user,confirmPassword: e.target.value})}
-        />
- 
-          <ButtonFormCadastro type='submit'>Cadastrar</ButtonFormCadastro>
-    </DivFormCadastro>
+      />
+    </div>
+    <div>
+      <label className='label' htmlFor="idade">Idade:</label>
+      <input
+        className='input' 
+        type="number" 
+        id="idade" 
+        value={user.age}
+        onChange={(e)=>setUser({...user,age: e.target.value})}
+      />
+    </div>
+    <div>
+      <label className='label' htmlFor="senha">Senha:</label>
+      <input
+        className='input' 
+        type="password" 
+        id="senha" 
+        value={user.password}
+        onChange={(e)=>setUser({...user,password: e.target.value})}
+      />
+    </div>
+      <label className='label' htmlFor="confirmPassword">Confirme Sua Senha:</label>
+      <input
+        className='input' 
+        type="password" 
+        id="confirmPassword" 
+        value={user.confirmPassword}
+        onChange={(e)=>setUser({...user,confirmPassword: e.target.value})}
+      />
+    
+    <button type='submit'>Cadastrar</button>
+  </form>
   )
 }
 
