@@ -1,0 +1,22 @@
+.popup{
+    width: 320px;
+    height: 180px;
+    border-radius: 8px;
+    background-color: lightcoral;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    animation: openCard 2s ease-in-out;
+}
+
+@keyframes openCard {
+    0%{
+        right: -360px;
+    }
+    80%{
+        right: 100px;
+    }
+    100%{
+        right: 50px;
+    }
+}
