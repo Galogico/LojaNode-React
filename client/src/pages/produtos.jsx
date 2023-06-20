@@ -23,3 +23,4 @@ function Produtos(){
         </div>
     )
 }
+export default Produtos;
