@@ -4,7 +4,7 @@ import axios from "axios"
 function Produtos(){
     const [produtos, setProdutos] = useState([])
     useEffect(()=>{
-        axios.get('https://localhost:8080/products')
+        axios.get('https://loja-node-react-brabissimo-super-saas.onrender.com/products')
             .then(res=>setProdutos(res.data))
             .catch(err=>console.log(err))
     },[])

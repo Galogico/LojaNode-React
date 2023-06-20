@@ -13,7 +13,7 @@ function Registrar() {
                                     confirmPassword:''
                                   })
   function cadastrarUsuario(user){
-    axios.post('http://localhost:8081/auth/register/user',user)
+    axios.post('https://loja-node-react-brabissimo-super-saas.onrender.com/auth/register/user',user)
       .then(res=>console.log(res.data))
       .catch(erro=> console.log(erro))
   }
